@@ -1,93 +1,87 @@
+/* C PROGRAM OF DIFFRENT TYPE OF OPERATIONS ON STACKS USING ARRAYS
+PROGRAMMER :- PINAKI RAY
+DATE :-25TH SEPT 2021 / 2:07 AM */
+
+
 #include<stdio.h>
-#define SIZE 5
-int top = -1;
-int stack[SIZE];
-void push(int item);
-int pop();
-int peep();
-
-void main()
+#define size 3
+int stack[size];
+int top=-1;
+void push();
+void pop();
+void peek();
+int main()
 {
-	int item, choice, cont = 1;
-
-	while(cont == 1)
-	{
-		printf("\n1.Push onto stack.\n");
-		printf("\n2.Pop from stack.\n");
-		printf("\n3.Peep into stack.\n");
-
-		printf("\nEnter your choice: ");
-		scanf("%d",&choice);
-
-		switch(choice)
-		{
-			case 1:
-				printf("\nEnter the value of item: ");
-				scanf("%d",&item);
-				push(item);
-				break;
-
-			case 2:
-				item = pop();
-				if(item != NULL)
-				{
-					printf("\nItem popped out: %d\n",item);
-				}				
-				break;
-
-			case 3:
-				item = peep();
-				if(item != NULL)
-				{
-					printf("\nItem at top of stack: %d\n",item);
-				}				
-				break;
-
-			default:
-				printf("\nInvalid choice.\n");
-				break;
-		}
-	}
+ int choice , count=1;
+ while(count==1)
+   {
+     printf("1-> PUSH INTO STACK\n");
+     printf("2-> POP INTO STACK\n");
+     printf("3-> PEEK INTO STACK\n");
+     printf("Enter your choice\n");
+     scanf("%d",&choice);
+     switch(choice)
+       {
+         case 1:
+         push();
+         break;
+         case 2:
+         pop();
+         break;
+         case 3:
+         peek();
+         break;
+         default:
+         printf("INVALID CHOICE");
+        }
+    }
 }
-void push(int item)
+void push()
 {
-	if(top >= SIZE-1)
-	{
-		printf("\nStack Overflow. Push not possible.\n");
-	}
-	else
-	{
-		top = top+1;
-		stack[top] = item;
-	}
+    int element;
+    if(top == size-1)
+    {
+        printf("---------------------------------------------\n");
+        printf("Stack overflow !!! can't able to push element\n");
+        printf("---------------------------------------------\n");
+    }
+    else
+    {
+        printf("enter the element which you want to push inside stack\n");
+        scanf("%d" , &element);
+        top = top+1;
+        stack[top]=element;
+    }
 }
-int pop()
+void pop()
 {
-	int item = NULL;
-
-	if(top <= -1)
-	{
-		printf("\nStack Underflow. Pop not possible.\n");
-	}
-	else
-	{
-		item = stack[top];
-		stack[top] = NULL;
-		top = top-1;
-	}
-	return(item);
+    if(top==-1)
+    {
+        printf("----------------------------------------------------------\n");
+        printf("stack underflow!!! cant able to pop element from the stack\n");
+        printf("-----------------------------------------------------------\n");
+    }
+    else
+    {
+        printf("-------------------------------------------- \n");
+        printf("%d is popped out of the stack\n" , stack[top]);
+        printf("---------------------------------------------\n");
+        top=top-1;
+    }
 }
-int peep()
+void peek()
 {
-	int item = NULL;
-
-	if(top <= -1)
-	{
-		printf("\nStack Underflow. No element in stack.\n");
-	}
-	else
-	{
-		item = stack[top];
-	}
-	return(item);
+    if(top==-1)
+    {
+        printf("--------------------------------------------------------------------\n");
+        printf("stack is underflow !!!! can't able to peek an element from the array\n");
+        printf("---------------------------------------------------------------------\n");
+    }
+    else
+    {
+        printf("--------------------------\n"); 
+        printf("%d is the top most element\n" , stack[top]);
+        printf("--------------------------\n");
+        top = top-1;
+    }
 }
