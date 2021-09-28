@@ -1,3 +1,7 @@
+/* C PROGRAM TO PERFORM DIFFERENT OPERATION OF QUEUE
+PRPGRAMMER :- PINAKI RAY;
+DATE:- 28TH SEPT 2021;
+*/
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 10
