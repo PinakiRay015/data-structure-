@@ -8,7 +8,7 @@ DATE :- 28TH SEPT 2021
 .
 */
 #include<stdio.h>
-#define max 3
+#define max 5
 int queue[max];
 int rear,front;
 void insert();
